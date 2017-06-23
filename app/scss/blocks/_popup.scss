@@ -1,0 +1,15 @@
+.popup {
+  width: calc(100% - #{($grid-gutter-width / 2)});
+  max-width: 500px;
+  padding: rem($grid-gutter-width * 1.5);
+}
+
+.popup__title {
+  margin: 0;
+  margin-bottom: rem(30);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  font-size: 1.65rem;
+}

@@ -1,0 +1,73 @@
+.page {
+
+}
+
+.page__content {
+  position: relative;
+}
+
+.page__breadcrumbs {
+  @include make-slim-container();
+
+  min-height: 60px;
+}
+
+.page__headline {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: ($grid-gutter-width * 2);
+  padding-left: ($grid-gutter-width / 2);
+  padding-right: ($grid-gutter-width / 2);
+  text-align: center;
+
+  @include media-breakpoint-up(lg) {
+    max-width: rem(620);
+  }
+}
+
+.page__title {
+  margin: 0;
+  margin-bottom: $grid-gutter-width;
+  line-height: 1.2;
+  font-size: rem(50);
+  font-family: $secondary-font;
+}
+
+.page__intro {
+  font-weight: 300;
+  font-size: rem(20);
+}
+
+.page__text {
+  font-size: rem(14);
+
+  h2 {
+    margin-top: 2.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: rem(20);
+  }
+
+  p, ul, ol {
+    margin-bottom: 1.5rem;
+  }
+
+  img {
+    display: block;
+  }
+
+  .alignleft {
+    float: left;
+    margin-right: $grid-gutter-width;
+  }
+
+  .alignright {
+    float: right;
+    margin-left: $grid-gutter-width;
+  }
+
+  .aligncenter {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

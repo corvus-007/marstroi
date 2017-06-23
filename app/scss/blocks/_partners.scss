@@ -1,0 +1,25 @@
+.partners {
+
+}
+
+.partners__list {
+  @include clear-list();
+  @include make-row();
+}
+
+.partners__item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: $grid-gutter-width;
+}
+
+.partners__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+
+  img {
+    margin: auto;
+  }
+}

@@ -1,0 +1,113 @@
+$categories-colors-map: (
+  1: #910932,
+  2: #780b2f,
+  3: $accent-color-4
+);
+
+.categories-nav {
+
+}
+
+.categories-nav__list {
+  @include clear-list();
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+  }
+}
+
+.categories-nav__item {
+  font-size: rem(13);
+  overflow: hidden;
+  box-sizing: border-box;
+
+  @each $key, $value in $categories-colors-map {
+    &:nth-child(#{$key}) {
+      background-color: $value;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+    flex-direction: column;
+    width: percentage(1/3);
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: rem($font-size--small);
+  }
+}
+
+.categories-nav__link {
+  display: flex;
+  flex-grow: 1;
+  padding: rem($grid-gutter-width / 1);
+  color: $white-color;
+  transition: $duration;
+
+  &:hover,
+  &:focus {
+    color: $white-color;
+  }
+}
+
+.categories-nav__icon-wrapper {
+  position: relative;
+  align-self: center;
+  flex-shrink: 0;
+  margin-right: rem($grid-gutter-width / 1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border-radius: 50%;
+    background-color: rgba($white-color, 0.15);
+    transition: ($duration * 2), transform ($duration * 2.5);
+  }
+}
+
+.categories-nav__link:hover .categories-nav__icon-wrapper {
+  &::before {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0.2;
+  }
+}
+
+.categories-nav__icon {
+  position: relative;
+  display: inline-block;
+  width: rem(64);
+  height: rem(64);
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+.categories-nav__text {
+
+}
+
+.categories-nav__caption {
+  display: block;
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: rem(16);
+
+  @include media-breakpoint-up(lg) {
+    font-size: rem(20);
+  }
+}
+
+.categories-nav__description {
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}

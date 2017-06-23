@@ -1,0 +1,118 @@
+.contacts-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contacts-header__control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.contacts-header__control-toggler {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  padding-left: 10px;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    height: 6px;
+    margin: auto;
+    border: 2px solid transparent;
+    border-right-color: $accent-color;
+    border-bottom-color: $accent-color;
+    transform: translateY(-25%) rotate(45deg);
+  }
+}
+
+.contacts-header__control-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 28px;
+  text-align: right;
+  background-color: $white-color;
+  border-radius: $border-radius;
+  transition: ($duration * 1.5);
+  user-select: none;
+  // background-color: #7dc;
+
+  &--hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY($grid-gutter-width / 2);
+    transition: transform $duration, opacity $duration, visibility 0s $duration;
+  }
+}
+
+.contacts-header__phones-list {
+  @include clear-list();
+}
+
+.contacts-header__phones-item {
+  font-size: 16px;
+}
+
+.contacts-header__phone {
+  display: inline-block;
+  padding: 5px 10px;
+  color: $base-color;
+  vertical-align: middle;
+}
+
+.contacts-header__control-text {
+  color: $white-color;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  &:hover,
+  &:focus {
+    color: $white-color;
+  }
+}
+
+.homepage .contacts-header__control-text {
+  color: $base-color;
+
+  &:hover,
+  &:focus {
+    color: $base-color;
+  }
+}
+
+.contacts-header__phone-number {
+  font-weight: 300;
+  font-size: em($font-size--large);
+}
+
+.contacts-header__callback {
+  @include createPseudolink();
+  @include createPseudolinkColorsInversion();
+
+  margin-top: rem($grid-gutter-width / 2);
+  min-width: auto;
+
+  @include media-breakpoint-up(sm) {
+    margin-top: 5px;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-top: 2px;
+  }
+}
+
+.homepage .contacts-header__callback {
+  @include createPseudolinkColors();
+}

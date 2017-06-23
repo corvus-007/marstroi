@@ -1,0 +1,90 @@
+// Colors
+$base-color: #303030;
+$accent-color: #b20e40;
+$accent-color-2: #e8013f;
+$accent-color-3: #a80f3e;
+$accent-color-4: #5b0e2b;
+$secondary-color: #eee7e9;
+$secondary-color-2: #faecdb;
+
+$success-color: #11fd6d;
+$info-color: #b9dfff;
+$warning-color: #f3d92e;
+$danger-color: #fd0d4d;
+
+$gray-color-143: #8f8f8f;
+$gray-color-179: #b3b3b3;
+$gray-color-230: #e6e6e6;
+$gray-color-245: #f5f5f5;
+
+$white-color: #ffffff;
+$black-color: #000000;
+$dark-color: #236422;
+$light-color: #f5f4f4;
+$muted-color: #7a7a7a;
+$link-color: $accent-color;
+$link-color--hover: darken($accent-color, 5%);
+$link-color-light: $accent-color-2;
+$link-color-light--hover: darken($accent-color-2, 5%);
+
+
+// Fonts
+$font-size: 18px;
+$font-size--small: 15px;
+$font-size--smaller: 14px;
+$font-size--smallest: 12px;
+$font-size--large: 23px;
+$primary-font: "Roboto", "Calibri", "Candara", "Segoe", "Segoe UI", "Optima", "Arial", sans-serif;
+$secondary-font: 'uni_sansheavy_caps', sans-serif;
+
+$box-shadow: 0 15px 33px rgba(#000, 0.23);
+$box-shadow-hover: 0 8px 22px rgba(#000, 0.3);
+$box-shadow-active: 0 3px 12px rgba(#000, 0.6);
+$box-shadow-nav-item: 0 0 18px rgba($gray-color-179, 0.6);
+$box-shadow-nav-item-invert: 0 0 18px rgba($white-color, 0.6);
+$duration: 0.25s;
+$border-radius: 2px;
+
+
+// Grid
+$grid-columns: 12;
+$grid-gutter-width: 30px;
+
+$slider-buffer-dots: ($grid-gutter-width * 2);
+
+// Media querys
+$xs-width: 0;
+$sm-width: "(min-width: 568px)";
+$md-width: "(min-width: 768px)";
+$lg-width: "(min-width: 992px)";
+$xl-width: "(min-width: 1280px)";
+$xxl-width: "(min-width: 1600px)";
+$xs-only: "(max-width: 567px)";
+$sm-only: "(max-width: 767px)";
+$md-only: "(max-width: 991px)";
+$retina: "(min-resolution: 144dpi), (min-resolution: 1.5dppx)";
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 568px,
+  md: 768px,
+  lg: 992px,
+  xl: 1280px,
+  xxl: 1600px
+);
+
+$grid-max-widths: (
+  sm: none,
+  md: 720px,
+  lg: 960px,
+  xl: 1000px,
+  xxl: 1200px
+);
+
+$grid-max-widths--slim: (
+  sm: none,
+  md: none,
+  lg: 780px,
+  xl: 800px,
+  xxl: 980px
+);

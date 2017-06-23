@@ -1,0 +1,141 @@
+.form-item {
+  margin-bottom: rem(15);
+  display: block;
+}
+
+.form-label {
+  display: inline-block;
+  padding-bottom: 0.3em;
+  vertical-align: middle;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.form-label--required::after {
+  display: inline-block;
+  margin-left: 0.2em;
+  color: #F44336;
+  content: "*";
+}
+
+.form-control {
+  padding: rem(13) 0;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: rem(2) solid transparent;
+  border-bottom-color: $secondary-color;
+  background: transparent;
+  font: inherit;
+  font-size: rem($font-size--small);
+  line-height: normal;
+  box-sizing: border-box;
+  transition: $duration;
+
+  &:hover {
+    border-bottom-color: currentColor;
+  }
+
+  &:focus {
+    border-bottom-color: currentColor;
+  }
+
+  &::placeholder {
+    color: $gray-color-143;
+    opacity: 1;
+  }
+}
+
+textarea.form-control {
+  max-height: 200px;
+  resize: vertical;
+}
+
+.form-submit-wrapper {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.form-submit {
+
+  @include media-breakpoint-down(xs) {
+    // padding-left: 5px;
+    // padding-right: 5px;
+    // width: 100%;
+  }
+}
+
+.form-submit:hover,
+.form-submit:focus {
+  // background: #1e3241;
+}
+
+.form-submit:active {
+  // background: #0b1217;
+}
+
+.form-note {
+  margin-top: rem(15);
+  font-size: rem(12);
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.wpcf7-form {
+  p:empty,
+  br {
+    display: none;
+  }
+}
+span.wpcf7-not-valid-tip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  padding: 5px 10px;
+  background-color: $danger-color;
+  color: #fff;
+  display: inline-block;
+  font-size: rem(11);
+}
+
+.form-control {
+  &.wpcf7-not-valid {
+    border-color: $danger-color;
+  }
+}
+
+.wpcf7-form-control-wrap {
+  display: block;
+}
+
+.invalid {
+
+  .form-submit {
+    // background-color: $mutedColor;
+  }
+}
+
+.wpcf7-response-output {
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: rem(14);
+  padding: 0.5em 0.7em;
+  border: 2px solid;
+  text-shadow: none;
+
+  &.wpcf7-validation-errors {
+    background-color: rgba($warning-color, 0.8);
+    border-color: $warning-color;
+    color: mix(#000, $warning-color, 60%);
+  }
+
+  &.wpcf7-mail-sent-ok {
+    background-color: rgba($success-color, 0.8);
+    border-color: $success-color;
+    color: mix(#000, $success-color, 60%);
+  }
+}

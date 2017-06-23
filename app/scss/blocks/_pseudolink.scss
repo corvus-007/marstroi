@@ -1,0 +1,82 @@
+@mixin createPseudolink() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 260px;
+  padding: rem(14) rem(12);
+  text-align: center;
+  font-family: inherit;
+  font-size: rem($font-size--smallest);
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: normal;
+  outline: none;
+  user-select: none;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 60px;
+  box-sizing: border-box;
+  transition: ($duration * 1.5);
+  cursor: pointer;
+
+  @include media-breakpoint-up(sm) {
+    // width: auto;
+    padding: rem(6.5) rem(26);
+  }
+}
+
+@mixin createPseudolinkSmall() {
+  padding: rem(8) rem(28);
+  font-size: rem($font-size--small);
+}
+
+@mixin createPseudolinkLarge() {
+  padding: rem(18) rem(40);
+  font-size: rem($font-size--large);
+}
+
+@mixin createPseudolinkColors() {
+  border-color: $link-color-light;
+  color: $base-color;
+
+  &:hover,
+  &:focus {
+    color: $white-color;
+    border-color: $link-color-light--hover;
+    background-color: $link-color-light--hover;
+  }
+}
+
+@mixin createPseudolinkColorsInversion() {
+  border-color: $secondary-color-2;
+  color: $secondary-color-2;
+
+  &:hover,
+  &:focus {
+    color: $base-color;
+    border-color: $secondary-color-2;
+    background-color: $secondary-color-2;
+  }
+}
+
+.pseudolink {
+  @include createPseudolink();
+  @include createPseudolinkColors();
+}
+
+.pseudolink__icon {
+  display: inline-block;
+  width: rem(18);
+  height: rem(18);
+  vertical-align: middle;
+  fill: currentColor;
+
+  &:first-child {
+    margin-right: 0.5em;
+  }
+
+  &:last-child {
+    margin-left: 0.5em;
+  }
+}

@@ -1,0 +1,25 @@
+.breadcrumbs {
+  text-align: center;
+}
+
+.breadcrumbs__item {
+  font-size: rem(17);
+  font-family: $secondary-font;
+  text-transform: uppercase;
+  // padding-bottom: ($grid-gutter-width / 2);
+
+  &::after {
+    content: "";
+    display: block;
+    margin: 10px auto;
+    margin-bottom: 0;
+    width: 20px;
+    height: 20px;
+    background: url("images/double-shevron-down.svg") no-repeat center / contain;
+  }
+}
+
+.breadcrumbs__link {
+  text-decoration: underline;
+  color: $accent-color-2;
+}

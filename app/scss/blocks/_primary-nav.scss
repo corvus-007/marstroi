@@ -1,0 +1,42 @@
+.primary-nav {
+
+}
+
+.primary-nav__list {
+  @include clear-list();
+
+  font-family: $secondary-font;
+  line-height: 1.2;
+  font-size: rem($font-size--large);
+  text-transform: uppercase;
+
+  @include media-breakpoint-up(md) {
+    font-size: rem(35);
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: rem(50);
+  }
+}
+
+.primary-nav__item {
+  &:not(:last-child) {
+    margin-bottom: 0.5em;
+  }
+}
+
+.primary-nav__link {
+  color: $white-color;
+  text-decoration: none;
+  border-bottom: none;
+  transition: ($duration * 1.5);
+
+  &:hover {
+    color: $accent-color-4;
+  }
+}
+
+.primary-nav__item--active .primary-nav__link {
+  color: $accent-color-4;
+  opacity: 0.8;
+}

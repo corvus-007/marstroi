@@ -1,0 +1,112 @@
+@mixin createButton() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 260px;
+  padding: rem(18) rem(10);
+  text-align: center;
+  font-family: inherit;
+  font-size: rem($font-size--smallest);
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: normal;
+  outline: none;
+  user-select: none;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 60px;
+  box-sizing: border-box;
+  box-shadow: $box-shadow;
+  transition: $duration;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: $box-shadow-hover;
+  }
+
+  &:active {
+    box-shadow: $box-shadow-active;
+  }
+
+  @include media-breakpoint-up(sm) {
+    // width: auto;
+    padding: rem(11) rem(26);
+  }
+}
+
+@mixin createButtonSmall() {
+  padding: rem(8) rem(28);
+  font-size: rem($font-size--small);
+}
+
+@mixin createButtonLarge() {
+  padding: rem(18) rem(40);
+  font-size: rem($font-size--large);
+}
+
+@mixin createButtonColors() {
+  background-color: $link-color;
+  color: $white-color;
+
+  &:hover,
+  &:focus {
+    color: $white-color;
+    background-color: $link-color--hover;
+  }
+}
+
+
+@mixin createButtonColorsDark() {
+  color: $dark-color;
+  border-color: $dark-color;
+
+  &:hover,
+  &:focus {
+    color: $white-color;
+    background-color: $dark-color;
+  }
+}
+
+@mixin createButtonColorsRed() {
+  color: $danger-color;
+  border-color: $danger-color;
+
+  &:hover,
+  &:focus {
+    color: $white-color;
+    background-color: $danger-color;
+  }
+}
+
+@mixin createButtonColorsGreen() {
+  color: $base-color;
+  border-color: $success-color;
+
+  &:hover,
+  &:focus {
+    color: $base-color;
+    background-color: $success-color;
+  }
+}
+
+.button {
+  @include createButton();
+  @include createButtonColors();
+}
+
+.button__icon {
+  display: inline-block;
+  width: rem(18);
+  height: rem(18);
+  vertical-align: middle;
+  fill: currentColor;
+
+  &:first-child {
+    margin-right: 0.5em;
+  }
+
+  &:last-child {
+    margin-left: 0.5em;
+  }
+}
