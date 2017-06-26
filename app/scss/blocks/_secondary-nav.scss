@@ -11,9 +11,10 @@
   max-height: 100%;
   line-height: 1.2;
   font-size: rem($font-size--small);
-  text-align: right;
+  // text-align: right;
   overflow: hidden;
   overflow-y: auto;
+  user-select: none;
 
   &::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -33,6 +34,10 @@
   &--active{
     display: block;
   }
+
+  @include media-breakpoint-up(md) {
+    text-align: right;
+  }
 }
 
 .secondary-nav__item {
@@ -42,7 +47,8 @@
 
 .secondary-nav__list--active .secondary-nav__item {
   animation-play-state: running;
-  @for $i from 1 through 20 {
+
+  @for $i from 1 through 25 {
     &:nth-child(#{$i}) {
       animation-delay: $i * 0.025s;
     }

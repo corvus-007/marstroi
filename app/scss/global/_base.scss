@@ -20,7 +20,24 @@ body {
   overflow-y: auto;
 
   &:not(.homepage) {
-    background: url("images/bg-page-top.svg") no-repeat top / 140%;
+    background-image: url("images/bg-page-top.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 310%;
+  }
+
+  @include media-breakpoint-up(sm) {
+    &:not(.homepage) {
+      background-position: 100% 0%;
+      background-size: 200%;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    &:not(.homepage) {
+      background-position: 100% 0%;
+      background-size: 110%;
+    }
   }
 }
 

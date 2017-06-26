@@ -2,11 +2,10 @@
 ul:not([class]) {
   $dimensions-marker: 8;
 
-  @include clear-list();
-
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
   padding: 0;
-  letter-spacing: normal;
+  list-style: none;
 
   li {
     position: relative;

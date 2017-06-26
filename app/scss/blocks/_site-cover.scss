@@ -28,7 +28,7 @@
   flex-direction: column;
   height: 100%;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(sm) {
     flex-direction: row;
   }
 }
@@ -37,19 +37,37 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex-shrink: 0;
-  // height: 100%;
   padding-top: rem($grid-gutter-width * 2);
   box-sizing: border-box;
+  flex-grow: 1;
 
   &--left {
     padding-left: rem($grid-gutter-width);
     padding-right: rem($grid-gutter-width);
-    // padding-bottom: rem($grid-gutter-width);
+    padding-bottom: rem($grid-gutter-width * 1);
+    flex-shrink: 0;
   }
 
   &--right {
-    flex-grow: 1;
+    padding: rem($grid-gutter-width) rem($grid-gutter-width / 2);
+    background-color: $accent-color-3;
+  }
+
+  @include media-breakpoint-up(sm) {
+    height: 100%;
+    padding-top: rem($grid-gutter-width * 2.5);
+    padding-bottom: rem($grid-gutter-width * 1);
+    width: 50%;
+
+    &--left {
+      // padding-left: rem($grid-gutter-width * 2.5);
+    }
+
+    &--right {
+      display: flex;
+      // padding-top: rem($grid-gutter-width * 2.5);
+      // background-color: $accent-color-3;
+    }
   }
 
   @include media-breakpoint-up(md) {
@@ -66,20 +84,21 @@
       display: flex;
       width: 45%;
       padding-top: rem($grid-gutter-width * 5);
-      background-color: $accent-color-3;
+      // background-color: $accent-color-3;
     }
   }
 }
 
 .site-cover__close {
   position: absolute;
-  top: rem($grid-gutter-width * 2);
-  right: rem($grid-gutter-width);
+  top: rem($grid-gutter-width / 2);
+  right: rem($grid-gutter-width / 2);
   display: flex;
   align-self: flex-end;
   flex-shrink: 0;
   width: rem(40);
   height: rem(40);
+  padding: 0;
   font-size: 0;
   background: none;
   border: none;
@@ -113,8 +132,13 @@
     opacity: 1;
   }
 
+  @include media-breakpoint-up(md) {
+    top: rem($grid-gutter-width * 2);
+    right: rem($grid-gutter-width / 2);
+  }
+
   @include media-breakpoint-up(lg) {
-    right: rem($grid-gutter-width * 2.5);
+    // right: rem($grid-gutter-width * 2.5);
   }
 }
 

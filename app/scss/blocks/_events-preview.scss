@@ -65,7 +65,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: -1px;
     z-index: 2;
     height: rem(18);
     background: url("images/events-divider.svg") no-repeat bottom / contain;

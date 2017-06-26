@@ -58,7 +58,7 @@ $sm-width: "(min-width: 568px)";
 $md-width: "(min-width: 768px)";
 $lg-width: "(min-width: 992px)";
 $xl-width: "(min-width: 1280px)";
-$xxl-width: "(min-width: 1600px)";
+$xxl-width: "(min-width: 1500px)";
 $xs-only: "(max-width: 567px)";
 $sm-only: "(max-width: 767px)";
 $md-only: "(max-width: 991px)";
@@ -70,7 +70,7 @@ $grid-breakpoints: (
   md: 768px,
   lg: 992px,
   xl: 1280px,
-  xxl: 1600px
+  xxl: 1500px
 );
 
 $grid-max-widths: (

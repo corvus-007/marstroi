@@ -9,6 +9,7 @@
   line-height: 1.2;
   font-size: rem($font-size--large);
   text-transform: uppercase;
+  user-select: none;
 
   @include media-breakpoint-up(md) {
     font-size: rem(35);
@@ -39,4 +40,5 @@
 .primary-nav__item--active .primary-nav__link {
   color: $accent-color-4;
   opacity: 0.8;
+  cursor: default;
 }

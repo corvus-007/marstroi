@@ -102,14 +102,16 @@
   @include createPseudolinkColorsInversion();
 
   margin-top: rem($grid-gutter-width / 2);
-  min-width: auto;
 
   @include media-breakpoint-up(sm) {
     margin-top: 5px;
+    padding-top: rem(13);
+    padding-bottom: rem(13);
   }
 
   @include media-breakpoint-up(md) {
     margin-top: 2px;
+    min-width: auto;
   }
 }
 

@@ -40,7 +40,7 @@
     }
   }
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     display: none;
   }
 }
@@ -67,12 +67,20 @@
 }
 
 .site-nav__toggle {
-  height: 23px;
-  box-sizing: content-box;
+  padding: 0;
+  font-size: 0;
+  background: none;
+  border: none;
   outline: none;
-  color: $base-color;
+  color: currentColor;
+  cursor: pointer;
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(xl) {
     display: none;
   }
+}
+
+.site-nav__toggle-icon {
+  vertical-align: middle;
+  fill: currentColor;
 }

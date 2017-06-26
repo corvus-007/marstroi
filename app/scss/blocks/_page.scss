@@ -1,5 +1,7 @@
 .page {
-
+  &--archive-events {
+    background-color: $gray-color-245;
+  }
 }
 
 .page__content {
@@ -21,7 +23,7 @@
   text-align: center;
 
   @include media-breakpoint-up(lg) {
-    max-width: rem(620);
+    max-width: rem(760);
   }
 }
 
@@ -29,7 +31,7 @@
   margin: 0;
   margin-bottom: $grid-gutter-width;
   line-height: 1.2;
-  font-size: rem(50);
+  font-size: rem(36);
   font-family: $secondary-font;
 }
 
@@ -41,32 +43,58 @@
 .page__text {
   font-size: rem(14);
 
-  h2 {
-    margin-top: 2.2rem;
-    margin-bottom: 1.5rem;
+  & > * + * {
+    margin-top: 1.5rem;
+    // margin-bottom: 0;
+  }
+
+  & > * + h2 {
+    margin-top: 2.25rem;
+  }
+
+  & > * + h3 {
+    margin-top: 2rem;
+  }
+
+  & > h2 + * {
+    margin-top: 0.9rem;
+  }
+
+  & > h3 + * {
+    margin-top: 0.9rem;
+  }
+
+  & > h2 + h3 {
+    margin-top: 1rem;
+  }
+
+  & > h2 {
+    margin-bottom: 0;
     font-weight: 600;
     font-size: rem(20);
   }
 
-  p, ul, ol {
-    margin-bottom: 1.5rem;
+  & > h3 {
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: rem(18);
   }
 
   img {
     display: block;
   }
 
-  .alignleft {
+  & > .alignleft {
     float: left;
     margin-right: $grid-gutter-width;
   }
 
-  .alignright {
+  & > .alignright {
     float: right;
     margin-left: $grid-gutter-width;
   }
 
-  .aligncenter {
+  & > .aligncenter {
     margin-left: auto;
     margin-right: auto;
   }

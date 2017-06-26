@@ -1,3 +1,41 @@
-.table {
-  
+table {
+  max-width: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  cursor: default;
+}
+
+caption {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: rem($font-size);
+  text-align: left;
+}
+
+th,
+td {
+  border: 1px solid $secondary-color;
+  padding: rem(8);
+  text-align: left;
+  transition: ($duration / 2);
+}
+
+thead {
+  th,
+  td {
+    border-bottom-width: 2px;
+    text-align: left;
+  }
+}
+
+tbody {
+  vertical-align: top;
+  tr {
+    &:hover {
+      th,
+      td {
+        background-color: $gray-color-245;
+      }
+    }
+  }
 }
