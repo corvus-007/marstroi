@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   ==================================*/
 
   var siteNav = document.querySelector('.site-nav');
+  var categoriesNav = document.querySelector('.categories-nav');
   var primaryNav = document.querySelector('.primary-nav');
   var secondaryNav = document.querySelector('.secondary-nav');
   var siteCover = document.querySelector('.site-cover');
@@ -19,31 +20,32 @@ document.addEventListener('DOMContentLoaded', function () {
     siteCover.classList.toggle('site-cover--opened');
   }
 
-  $(siteNav).on('click', 'a, .site-nav__toggle', function (event) {
-    event.preventDefault();
-    toggleSiteCover();
-  });
-
   $(siteCoverClose).on('click', function (event) {
     event.preventDefault();
     toggleSiteCover();
   });
 
-  $(siteNav).on('click', '[data-nav]', function (event) {
+  $(siteNav).on('click', 'a, .site-nav__toggle', function (event) {
+    event.preventDefault();
+    toggleSiteCover();
+  });
+
+  $(categoriesNav).on('click', 'a', function (event) {
+    event.preventDefault();
+    toggleSiteCover();
+  });
+
+  $(siteNav).on('click', '[data-nav]', updateNavs);
+  $(categoriesNav).on('click', '[data-nav]', updateNavs);
+  $(primaryNav).on('click', '[data-nav]', updateNavs);
+
+  function updateNavs(event) {
     event.preventDefault();
     dataNavValue = this.dataset.nav;
 
     primaryNavUpdate();
     secondaryNavUpdate();
-  });
-
-  $(primaryNav).on('click', '[data-nav]', function (event) {
-    event.preventDefault();
-    dataNavValue = this.dataset.nav;
-
-    primaryNavUpdate();
-    secondaryNavUpdate();
-  });
+  }
 
   function primaryNavUpdate() {
     var primaryNavItems = primaryNav.querySelectorAll('[data-nav]');
@@ -72,17 +74,21 @@ document.addEventListener('DOMContentLoaded', function () {
   var welcomeSlider = document.querySelector('.welcome-slider__content');
 
   if (welcomeSlider) {
+    var welcomeSliderItems = welcomeSlider.querySelectorAll('.welcome-slider__item');
+    var welcomeSliderItemsContent = welcomeSlider.querySelectorAll('.welcome-slider__item-content');
+    var welcomeSliderArrows = document.querySelector('.welcome-slider__arrows');
+    var welcomeSliderArrowsGap = 25;
+
     $(welcomeSlider).on('init', function (event, instanceSlider) {
-      console.log(instanceSlider)
+      var maxHeightContent = getMaxHeight(welcomeSliderItemsContent);
+      welcomeSliderArrows.style.top = welcomeSliderItemsContent[0].offsetTop + maxHeightContent + welcomeSliderArrowsGap + 'px';
     });
 
     $(welcomeSlider).slick({
       accessibility: false,
-      autoplay: true,
+      // autoplay: true,
       autoplaySpeed: 5500,
       appendArrows: '.welcome-slider__arrows',
-      // useTransform: false,
-      // useCSS: false,
       fade: true,
       speed: 1000,
       responsive: [{
@@ -154,12 +160,11 @@ function loadMapScript() {
 
 // Две метки инициализация карты
 function initializeMap() {
-  console.log('init map');
   var mapLocations = [];
   var markers = [];
   var locationPlaces = document.querySelectorAll('[data-place-location]');
-  var ICONPATH = 'images/location-pin.svg';
-  // var ICONPATH = 'http://marstroi.ru/wp-content/themes/marstroi/images/location-pin.svg';
+  // var ICONPATH = 'images/location-pin.svg';
+  var ICONPATH = 'http://marstroi.ru/wp-content/themes/marstroi/images/location-pin.svg';
   var locationCenter = null;
 
   Array.prototype.forEach.call(locationPlaces, function (place, i) {
@@ -409,4 +414,19 @@ function initializeMap() {
   function showMarkers() {
     setMapOnAll(map);
   }
+}
+
+function getMaxHeight(elements) {
+  var maxHeight = 0;
+  if (typeof(elements) === 'string') {
+    elements = document.querySelectorAll(elements);
+  }
+  if (!elements.length) {
+    return;
+  }
+  Array.prototype.forEach.call(elements, function findMaxHeight(element) {
+    maxHeight = (maxHeight > element.clientHeight) ? maxHeight : element.clientHeight;
+  });
+
+  return maxHeight;
 }
