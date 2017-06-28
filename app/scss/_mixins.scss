@@ -64,11 +64,17 @@
 
 /// Подстраивание изображений (и не только) под заданные пропорции
 @mixin fitObject($target-width: 1, $target-height: 1, $fit: cover) {
-  display: block;
   position: relative;
-  height: 0;
+  display: block;
   overflow: hidden;
-  padding-top: percentage($target-height / $target-width);
+
+  &::before {
+    content: "";
+    width: 100%;
+    display: block;
+    height: 0;
+    padding-top: percentage($target-height / $target-width);
+  }
 
   img {
     position: absolute;
