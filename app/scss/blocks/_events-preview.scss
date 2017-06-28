@@ -58,9 +58,9 @@
 }
 
 .events-preview__image-wrapper {
-  @include fitObject(250, 210);
+  @include fitObject(290, 218);
 
-  &::before {
+  &::after {
     content: "";
     position: absolute;
     left: 0;
