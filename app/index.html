@@ -160,7 +160,7 @@
             </div>
             <div class="features__text">
               <p>
-                <b class="features__value">5</b> лет — мы помогаем команиям
+                <b class="features__value">5</b> лет — мы помогаем компаниям
               </p>
             </div>
             <a class="features__pseudolink" href="#">
@@ -403,35 +403,44 @@
       </div>
     </section>
 
-    <section class="location">
-      <h2 class="visuallyhidden">Где мы находимся</h2>
-      <div class="location__map-wrapper">
-        <div class="location__map" id="location-map"></div>
-      </div>
-      <div class="container">
-        <div class="location__form-wrapper">
-          <form class="location__form" action="" method="post">
-            <label class="form-item">
-              <span class="form-label visuallyhidden">Как к вам обращаться?</span>
-              <input class="form-control location__form-control" type="text" name="clientName" placeholder="Как к вам обращаться?">
-            </label>
-            <label class="form-item">
-              <span class="form-label visuallyhidden">Куда позвонить?</span>
-              <input class="form-control location__form-control" type="tel" name="clientPhone" placeholder="Куда позвонить?" required>
-            </label>
-            <label class="form-item">
-              <span class="form-label visuallyhidden">Текст сообщения</span>
-              <textarea class="form-control location__form-control" name="clientMessage" rows="4" placeholder="Текст сообщения" required></textarea>
-            </label>
-            <div class="form-submit-wrapper">
-              <input type="text" class="form-submit button button--orange" value="Отправить сообщение">
+    <section class="contacts contacts--homepage">
+      <h2 class="visuallyhidden">Контакты</h2>
+      <div class="contacts__map" id="contacts-map"></div>
+      <div class="contacts__places container">
+        <div class="contacts__place">
+          <div class="contacts-info">
+            <div class="contacts-info__item">
+              г. Брянск, <br>
+              ул. Дуки, д. 69, оф. 407
             </div>
-          </form>
-          <div class="location__note form-note">
-            <p>
-              Отправляя данные, вы соглашаетесь с <a href="#" target="_blank">Политикой&nbsp;конфиденциальности</a> этого
-              сайта
-            </p>
+            <div class="contacts-info__item">
+              т. <a class="phone" href="tel:+7 (695) 322-73-63">+7 (695) 322-73-63</a>
+            </div>
+            <div class="contacts-info__item">
+              Пн.–Пт., 09:00 – 18:00 <br>
+              Сб., Вс., — Выходной
+            </div>
+            <div class="contacts-info__item">
+              <a class="contacts-info__trigger" href="#" data-place-location='{"lat": 53.266494, "lng": 34.355551}' data-place-caption="г. Брянск, ул. Дуки, д. 69, оф. 407">Показать на карте</a>
+              </div>
+          </div>
+        </div>
+        <div class="contacts__place">
+          <div class="contacts-info">
+            <div class="contacts-info__item">
+              г. Москва, <br>
+              ул. Чертановская, д. 1
+            </div>
+            <div class="contacts-info__item">
+              т. <a class="phone" href="tel:+7 (4834) 671-001">(4834) <span>671-001</span></a>
+            </div>
+            <div class="contacts-info__item">
+              Пн.–Пт., 09:00 – 18:00 <br>
+              Сб., Вс., — Выходной
+            </div>
+            <div class="contacts-info__item">
+              <a class="contacts-info__trigger" href="#" data-place-location='{"lat": 55.633673, "lng": 37.603554}' data-place-caption="г. Москва, ул. Чертановская, д. 1">Показать на карте</a>
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,29 @@
+.contacts-info {
+  display: inline-block;
+  text-align: left;
+  font-size: rem(15);
+}
+
+.contacts-info__item {
+  margin-bottom: 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.contacts-info__trigger {
+  @include createPseudolink();
+  @include createPseudolinkColors();
+
+  @include media-breakpoint-up(md) {
+    padding-top: rem(10);
+    padding-bottom: rem(10);
+  }
+}
+
+.contacts-info__trigger--active {
+  // color: $accent-color;
+  opacity: 0.2;
+  pointer-events: none;
+}

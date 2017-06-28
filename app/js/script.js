@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleSiteCover();
   });
 
-  $(siteCoverClose).on('click', function(event) {
+  $(siteCoverClose).on('click', function (event) {
     event.preventDefault();
     toggleSiteCover();
   });
@@ -132,10 +132,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }]
   });
 
-  // Location map
-  var locationMap = document.querySelector('#location-map');
 
-  if (locationMap) {
+  // Location map
+  var contactsMap = document.querySelector('#contacts-map');
+
+  if (contactsMap) {
     loadMapScript();
   }
 });
@@ -150,31 +151,84 @@ function loadMapScript() {
   document.head.appendChild(script);
 }
 
-// Инициализация карты
+// Две метки инициализация карты
 function initializeMap() {
-  var locationOffice = {
-    lat: 53.266494,
-    lng: 34.355551
-  };
+  console.log('init map');
+  var mapLocations = [];
+  var markers = [];
+  var locationPlaces = document.querySelectorAll('[data-place-location]');
+  var ICONPATH = 'images/location-pin.svg';
+  // var ICONPATH = 'http://marstroi.ru/wp-content/themes/marstroi/images/location-pin.svg';
+  var locationCenter = null;
 
-  var centerMap = {
-    lat: 53.266494,
-    lng: 34.358716
-  };
+  Array.prototype.forEach.call(locationPlaces, function (place, i) {
+    var placeItem = {};
 
-  centerMap = (window.matchMedia("(min-width: 768px)").matches) ? centerMap : locationOffice;
+    if ($('.js-show-map').length) {
+      if (i === 0) {
+        locationCenter = getLocationCenter(place);
+      }
+    } else {
+      if (i === 0) {
+        place.classList.add('contacts-info__trigger--active');
+        locationCenter = getLocationCenter(place);
+      }
+    }
+    placeItem.position = getLocationCenter(place);
+    placeItem.title = place.dataset.placeCaption;
+
+    mapLocations.push(placeItem);
+  });
+
+
+  var mapProp = createProp(locationCenter);
+  var map = new google.maps.Map(document.getElementById("contacts-map"), mapProp);
+
+  mapLocations.forEach(function (mapLocation) {
+    addMarker(mapLocation);
+  });
+
+  if ($('.js-show-map').length) {
+    clearMarkers();
+  }
+
+
+  $(locationPlaces).on('click', function (event) {
+    event.preventDefault();
+    if (!$('.js-show-map').length) {
+      $(locationPlaces).removeClass('contacts-info__trigger--active')
+      $(this).addClass('contacts-info__trigger--active')
+    }
+    map.panTo(getLocationCenter(this));
+  });
+
+  $('.js-show-map').on('click', function (event) {
+    event.preventDefault();
+    $('.contacts__places-holder').addClass('contacts__places-holder--closed');
+    $('.contacts__toggle').removeClass('contacts__toggle--hidden');
+    showMarkers();
+  });
+
+  $('.js-hide-map').on('click', function (event) {
+    event.preventDefault();
+    $('.contacts__places-holder').removeClass('contacts__places-holder--closed');
+    $('.contacts__toggle').addClass('contacts__toggle--hidden');
+    clearMarkers();
+  });
+
+  function getLocationCenter(element) {
+    return JSON.parse(element.dataset.placeLocation);
+  }
+
 
   function createProp(defaultLocation) {
     return {
-      center: centerMap,
+      center: defaultLocation,
       zoom: 17,
-      streetViewControl: false,
-      zoomControl: true,
-      zoomControlOptions: {
-        position: google.maps.ControlPosition.RIGHT_CENTER
-      },
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       scrollwheel: false,
+      disableDefaultUI: true,
+      zoomControl: true,
       styles: [{
           "elementType": "geometry",
           "stylers": [{
@@ -323,6 +377,7 @@ function initializeMap() {
     };
   }
 
+  // Adds a marker to the map and push to the array.
   function addMarker(markerOption) {
     var svgIcon = {
       url: ICONPATH,
@@ -334,19 +389,23 @@ function initializeMap() {
       title: markerOption.title,
       icon: svgIcon
     });
+    markers.push(marker);
   }
 
-  var mapProp = createProp(locationOffice);
-  var map = new google.maps.Map(document.getElementById("location-map"), mapProp);
-  var ICONPATH = 'http://marstroi.ru/wp-content/themes/marstroi/images/location-pin.svg';
-  // var ICONPATH = 'images/location-pin.svg';
-  var marker = new google.maps.Marker({
-    position: locationOffice,
-    map: map,
-    title: '«MARSTROI» — ул. Дуки, д. 69, оф. 407',
-    icon: {
-      url: ICONPATH,
-      scale: 1
+  // Sets the map on all markers in the array.
+  function setMapOnAll(map) {
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(map);
     }
-  });
+  }
+
+  // Removes the markers from the map, but keeps them in the array.
+  function clearMarkers() {
+    setMapOnAll(null);
+  }
+
+  // Shows any markers currently in the array.
+  function showMarkers() {
+    setMapOnAll(map);
+  }
 }

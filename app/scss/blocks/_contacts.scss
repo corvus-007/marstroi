@@ -1,0 +1,148 @@
+.contacts {
+  position: relative;
+  margin-bottom: rem($grid-gutter-width * -2);
+  overflow-x: hidden;
+
+  &--homepage {
+    margin-bottom: 0;
+  }
+}
+
+.contacts__map {
+  height: rem(400);
+
+  @include media-breakpoint-up(md) {
+    height: rem(500);
+  }
+}
+
+.contacts__places-holder {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: rgba($white-color, 0.9);
+  opacity: 1;
+  visibility: visible;
+  transition: ($duration * 2);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 90vw;
+    background-color: inherit;
+  }
+
+  &::before {
+    right: 100%;
+  }
+
+  &:after {
+    left: 100%;
+  }
+
+  &--closed {
+    transition: opacity ($duration * 2), visibility 0s ($duration * 2);
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.contacts__places {
+  height: 100%;
+  padding-top: rem(20);
+  padding-bottom: rem(20);
+  box-sizing: border-box;
+}
+
+.contacts--homepage .contacts__places {
+  position: static;
+  justify-content: center;
+}
+
+.contacts__place {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.contacts--homepage .contacts__place {
+  flex-grow: 1;
+  padding-left: rem(10);
+  padding-right: rem(10);
+}
+
+.contacts__toggle {
+  position: absolute;
+  bottom: 1.5rem;
+  margin-left: rem(13);
+  padding: rem(5);
+  padding-left: rem(15);
+  border: none;
+  font-size: rem($font-size--smallest);
+  color: $white-color;
+  background-color: $accent-color;
+  // text-transform: uppercase;
+  // font-weight: 600;
+  transition: $duration;
+  cursor: pointer;
+
+  &::before {
+    content: "×";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    width: rem(30);
+    height: rem(30);
+    margin: auto;
+    margin-right: rem(-13);
+    font-size: 1.5em;
+    line-height: rem(30);
+    text-align: center;
+    background-color: inherit;
+    border-radius: 50%;
+  }
+
+  &--hidden {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 568px) {
+  .contacts__places {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: rem(45);
+    padding-bottom: rem(45);
+    box-sizing: border-box;
+  }
+
+  .contacts__place {
+    flex-basis: rem(200);
+    margin-bottom: 0;
+    padding-left: rem(50);
+    padding-right: rem(50);
+    border-right: 1px solid $accent-color;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+      border-right: none;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MARSTOI — Контакты</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page">
+  <div class="site-wrapper">
+    @@include('blocks/site-cover.html')
+    @@include('blocks/site-header.html')
+
+    <div class="main">
+      <article class="page__content">
+        <div class="page__breadcrumbs breadcrumbs">
+          <div class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="#">Cметная документация</a>
+          </div>
+        </div>
+        <header class="page__headline">
+          <h1 class="page__title">Контактная информация</h1>
+          <!-- <div class="page__intro">
+            <p>Аккредитация на электронных торговых площадках (ЭТП) «под ключ». Предоставляем полное юридическое и техническое
+              сопровождение в получение аккредитации на электронной площадкех, а также профессиональную помощь, в виде консультаций
+              по документам и прочим юридическим нюансам.</p>
+          </div> -->
+        </header>
+        <div class="contacts">
+        <div class="contacts__map" id="contacts-map"></div>
+        <div class="container">
+          <button class="contacts__toggle contacts__toggle--hidden js-hide-map" type="button">Закрыть карту</button>
+        </div>
+        <div class="contacts__places-holder container">
+          <div class="contacts__places">
+            <div class="contacts__place">
+              <div class="contacts-info">
+                <div class="contacts-info__item">
+                  г. Брянск, <br>
+                  ул. Дуки, д. 69, оф. 407
+                </div>
+                <div class="contacts-info__item">
+                  т. <a class="phone" href="tel:+7 (695) 322-73-63">+7 (695) 322-73-63</a>
+                </div>
+                <div class="contacts-info__item">
+                  Пн.–Пт., 09:00 – 18:00 <br>
+                  Сб., Вс., — Выходной
+                </div>
+                <div class="contacts-info__item">
+                  <a class="contacts-info__trigger js-show-map" href="#" data-place-location='{"lat": 53.266494, "lng": 34.355551}' data-place-caption="г. Брянск, ул. Дуки, д. 69, оф. 407">Показать на карте</a>
+                  </div>
+              </div>
+            </div>
+            <div class="contacts__place">
+              <div class="contacts-info">
+                <div class="contacts-info__item">
+                  г. Москва, <br>
+                  ул. Чертановская, д. 1
+                </div>
+                <div class="contacts-info__item">
+                  т. <a class="phone" href="tel:+7 (4834) 671-001">(4834) <span>671-001</span></a>
+                </div>
+                <div class="contacts-info__item">
+                  Пн.–Пт., 09:00 – 18:00 <br>
+                  Сб., Вс., — Выходной
+                </div>
+                <div class="contacts-info__item">
+                  <a class="contacts-info__trigger js-show-map" href="#" data-place-location='{"lat": 55.633673, "lng": 37.603554}' data-place-caption="г. Москва, ул. Чертановская, д. 1">Показать на карте</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </article>
+    </div>
+
+    @@include('blocks/site-footer.html')
+  </div>
+  @@include('blocks/popup-callback.html') @@include('blocks/site-scripts.html')
+</body>
+
+</html>
