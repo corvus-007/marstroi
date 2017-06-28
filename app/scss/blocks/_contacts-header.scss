@@ -42,12 +42,12 @@
   top: 100%;
   left: 0;
   right: 28px;
+  z-index: 1;
   text-align: right;
   background-color: $white-color;
   border-radius: $border-radius;
   transition: ($duration * 1.5);
   user-select: none;
-  // background-color: #7dc;
 
   &--hidden {
     opacity: 0;
