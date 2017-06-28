@@ -27,7 +27,7 @@
 
 @mixin createPseudolinkSmall() {
   padding: rem(8) rem(28);
-  font-size: rem($font-size--small);
+  font-size: rem($font-size--smaller);
 }
 
 @mixin createPseudolinkLarge() {

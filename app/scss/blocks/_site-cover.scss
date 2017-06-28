@@ -39,7 +39,7 @@
   justify-content: center;
   padding-top: rem($grid-gutter-width * 2);
   box-sizing: border-box;
-  flex-grow: 1;
+  // flex-grow: 1;
 
   &--left {
     padding-left: rem($grid-gutter-width);
@@ -51,6 +51,7 @@
   &--right {
     padding: rem($grid-gutter-width) rem($grid-gutter-width / 2);
     background-color: $accent-color-3;
+    flex-grow: 1;
   }
 
   @include media-breakpoint-up(sm) {
@@ -84,7 +85,6 @@
       display: flex;
       width: 45%;
       padding-top: rem($grid-gutter-width * 5);
-      // background-color: $accent-color-3;
     }
   }
 }

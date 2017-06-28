@@ -38,6 +38,10 @@
 .page__intro {
   font-weight: 300;
   font-size: rem(20);
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
 }
 
 .page__text {
