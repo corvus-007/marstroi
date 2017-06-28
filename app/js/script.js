@@ -78,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     $(welcomeSlider).slick({
       accessibility: false,
-      // autoplay: true,
+      autoplay: true,
+      autoplaySpeed: 5500,
       appendArrows: '.welcome-slider__arrows',
       // useTransform: false,
       // useCSS: false,
