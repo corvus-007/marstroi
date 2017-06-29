@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
       fade: true,
       speed: 1000,
       responsive: [{
-        breakpoint: 770,
+        breakpoint: 768,
         settings: {
           fade: false,
           speed: 300,
