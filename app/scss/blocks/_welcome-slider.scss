@@ -91,6 +91,16 @@
   }
 }
 
+.homepage .welcome-slider__item {
+  @include media-breakpoint-down(sm) {
+    padding-top: rem(170);
+  }
+
+  @include media-breakpoint-down(xs) {
+    padding-top: rem(300);
+  }
+}
+
 .slick-initialized .welcome-slider__item {
   display: flex;
   flex-direction: column;

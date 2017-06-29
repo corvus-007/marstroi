@@ -5,6 +5,15 @@
 .homepage .site-header {
   color: $base-color;
   background: none;
+
+  @include media-breakpoint-down(sm) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    max-width: 100%;
+  }
 }
 
 .site-header__inner {
