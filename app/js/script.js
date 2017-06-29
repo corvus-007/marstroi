@@ -13,26 +13,33 @@ document.addEventListener('DOMContentLoaded', function () {
   var siteCover = document.querySelector('.site-cover');
   var siteCoverClose = siteCover.querySelector('.site-cover__close');
   var dataNavValue = '';
+  var scrollPage = 0;
 
-  function toggleSiteCover() {
-    document.body.classList.toggle('no-scroll');
-    // document.body.style.overflow = 'hidden';
-    siteCover.classList.toggle('site-cover--opened');
+  function openSiteCover() {
+    scrollPage = window.pageYOffset;
+    document.body.classList.add('no-scroll');
+    siteCover.classList.add('site-cover--opened');
+  }
+
+  function closeSiteCover() {
+    document.body.classList.remove('no-scroll');
+    siteCover.classList.remove('site-cover--opened');
+    window.scrollTo(0, scrollPage);
   }
 
   $(siteCoverClose).on('click', function (event) {
     event.preventDefault();
-    toggleSiteCover();
+    closeSiteCover();
   });
 
   $(siteNav).on('click', 'a, .site-nav__toggle', function (event) {
     event.preventDefault();
-    toggleSiteCover();
+    openSiteCover();
   });
 
   $(categoriesNav).on('click', 'a', function (event) {
     event.preventDefault();
-    toggleSiteCover();
+    openSiteCover();
   });
 
   $(siteNav).on('click', '[data-nav]', updateNavs);
@@ -80,13 +87,15 @@ document.addEventListener('DOMContentLoaded', function () {
     var welcomeSliderArrowsGap = 25;
 
     $(welcomeSlider).on('init', function (event, instanceSlider) {
-      var maxHeightContent = getMaxHeight(welcomeSliderItemsContent);
-      welcomeSliderArrows.style.top = welcomeSliderItemsContent[0].offsetTop + maxHeightContent + welcomeSliderArrowsGap + 'px';
+      setTimeout(function () {
+        var maxHeightContent = getMaxHeight(welcomeSliderItemsContent);
+        welcomeSliderArrows.style.top = welcomeSliderItemsContent[0].offsetTop + maxHeightContent + welcomeSliderArrowsGap + 'px';
+      }, 150);
     });
 
     $(welcomeSlider).slick({
       accessibility: false,
-      // autoplay: true,
+      autoplay: true,
       autoplaySpeed: 5500,
       appendArrows: '.welcome-slider__arrows',
       fade: true,
@@ -101,7 +110,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }]
     });
   }
-
 
 
   $('.reviews__slider [data-fancybox]').fancybox({
@@ -202,8 +210,8 @@ function initializeMap() {
   $(locationPlaces).on('click', function (event) {
     event.preventDefault();
     if (!$('.js-show-map').length) {
-      $(locationPlaces).removeClass('contacts-info__trigger--active')
-      $(this).addClass('contacts-info__trigger--active')
+      $(locationPlaces).removeClass('contacts-info__trigger--active');
+      $(this).addClass('contacts-info__trigger--active');
     }
     map.panTo(getLocationCenter(this));
   });
@@ -418,7 +426,7 @@ function initializeMap() {
 
 function getMaxHeight(elements) {
   var maxHeight = 0;
-  if (typeof(elements) === 'string') {
+  if (typeof (elements) === 'string') {
     elements = document.querySelectorAll(elements);
   }
   if (!elements.length) {
