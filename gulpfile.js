@@ -6,6 +6,7 @@ var autoprefixer = require('autoprefixer');
 var browserSync = require('browser-sync').create();
 var mqpacker = require('css-mqpacker');
 var minify = require('gulp-csso');
+var sourcemaps = require('gulp-sourcemaps');
 var fileinclude = require('gulp-file-include');
 var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
@@ -19,6 +20,7 @@ var del = require('del');
 
 gulp.task('style', function() {
   return gulp.src('app/scss/style.scss')
+    .pipe(sourcemaps.init())
     .pipe(plumber({
       errorHandler: function(err) {
         console.log(err);
@@ -36,12 +38,9 @@ gulp.task('style', function() {
       })
       ])
     )
+    .pipe(minify())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/'))
-    // .pipe(minify())
-    // .pipe(rename({
-    //   suffix: '-min'
-    // }))
-    // .pipe(gulp.dest('build/'))
     .pipe(browserSync.stream());
 });
 
