@@ -146,12 +146,17 @@
   margin-bottom: rem($grid-gutter-width / 1);
   font-weight: 600;
   line-height: 1.2;
-  font-size: rem(50);
+  font-size: rem(35);
   font-family: $secondary-font;
   text-transform: uppercase;
 
+  @include media-breakpoint-up(sm) {
+    font-size: rem(40);
+  }
+
   @include media-breakpoint-up(md) {
     margin-bottom: rem($grid-gutter-width / 2);
+    font-size: rem(50);
   }
 }
 
